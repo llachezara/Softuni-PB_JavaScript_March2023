@@ -8,26 +8,23 @@ function toyShop(input) {
     let lorries = Number(input[5]);
 
     let toyCount = puzzles + dolls + bears + minions + lorries;
-    let priceForToys = puzzles * 2.60 + dolls * 3 + bears * 4.10 + minions * 8.20 + lorries * 2;
+    let moneyEarned = puzzles * 2.60 + dolls * 3 + bears * 4.10 + minions * 8.20 + lorries * 2;
 
-    let finalPrice;
+
     if (toyCount >= 50) {
-        finalPrice = priceForToys - 0.25 * priceForToys;
-    } else {
-        finalPrice = priceForToys;
+        moneyEarned = moneyEarned - 0.25 * moneyEarned;
     }
 
-    let rent = 0.1 * finalPrice;
-    let profit = finalPrice - rent;
+    let profit = 0.9 * moneyEarned;
 
     let moneyLeftOrNotEnough;
 
-    if (profit > priceForExcursion) {
+    if (profit >= priceForExcursion) {
         moneyLeftOrNotEnough = profit - priceForExcursion;
         console.log(`Yes! ${moneyLeftOrNotEnough.toFixed(2)} lv left.`);
 
     }
-    else if (priceForExcursion > profit) {
+    else {
         moneyLeftOrNotEnough = priceForExcursion - profit;
         console.log(`Not enough money! ${moneyLeftOrNotEnough.toFixed(2)} lv needed.`);
     }
