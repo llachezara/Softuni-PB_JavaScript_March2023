@@ -1,20 +1,16 @@
 function examPreparation(input) {
-    let index = 0;
-    let totalUnsatisfactoryGrades = Number(input[index]);
-    index++;
-
-    let command = input[index];
-    index++;
+    let totalUnsatisfactoryGrades = Number(input[0]);
+    let command = input[1];
 
     let gradeSum = 0;
     let unsatisfactoryGradeCount = 0;
     let problemCount = 0;
 
+    let index = 2;
     let currentProblem = command;
     while (command !== 'Enough') {
         currentProblem = command;
         let gradeFromCurrentProblem = Number(input[index]);
-
 
         if (gradeFromCurrentProblem <= 4) {
             unsatisfactoryGradeCount++;
