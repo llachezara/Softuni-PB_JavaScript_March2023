@@ -1,10 +1,8 @@
 function oldBooks(input) {
-    let index = 0;
-    const favoriteBook = input[index];
+    const favoriteBook = input[0];
+    let nextBookName = input[1];
 
-    index++;
-    let nextBookName = input[index];
-
+    let index = 1;
     let bookIsFound = false;
     while (nextBookName != 'No More Books') {
         if (nextBookName == favoriteBook) {
@@ -14,13 +12,14 @@ function oldBooks(input) {
         index++;
         nextBookName = input[index];
     }
+
+    let outputText = `You checked ${index - 1} books`;
     if (bookIsFound) {
-        console.log(`You checked ${index - 1} books and found it.`);
+        console.log(outputText + ` and found it.`);
     } else {
         console.log('The book you search is not here!');
-        console.log(`You checked ${index - 1} books.`);
+        console.log(outputText + `.`);
     }
-
 
 }
 oldBooks(["Bourne",
