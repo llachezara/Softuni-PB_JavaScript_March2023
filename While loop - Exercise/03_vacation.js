@@ -1,20 +1,14 @@
 function vacation(input) {
-    let index = 0;
-    let moneyNeeded = Number(input[index]);
-    index++;
-
-    let budget = Number(input[index]);
-    index++;
-    let action = input[index];
-    index++;
+    const moneyNeeded = Number(input[0]);
+    let budget = Number(input[1]);
 
     let consecutiveSpendDays = 0;
     let totalDaysPassed = 0;
 
-    let money = Number(input[index]);
+    let index = 2;
     while (budget < moneyNeeded) {
-        money = Number(input[index]);
-        index++;
+        action = input[index++];
+        money = Number(input[index++]);
 
         totalDaysPassed++;
         if (action == 'spend') {
@@ -24,7 +18,7 @@ function vacation(input) {
                 break;
             }
 
-            if (budget - money < 0) {
+            if (budget < money) {
                 budget = 0;
             } else {
                 budget -= money;
@@ -35,10 +29,6 @@ function vacation(input) {
             budget += money;
         }
 
-
-
-        action = input[index];
-        index++;
     }
 
     if (budget >= moneyNeeded) {
